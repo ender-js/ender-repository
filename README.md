@@ -1,6 +1,6 @@
 # Ender Repository [![Build Status](https://secure.travis-ci.org/ender-js/ender-repository.png)](http://travis-ci.org/ender-js/ender-repository)
 
-A component of the Ender CLI, providing an interface to [npm](http://npmjs.org/), all npm interaction goes through here so it's safely abstracted away from the rest of the code.
+A component of the [Ender CLI](https://github.com/ender-js/Ender/), providing an interface to [npm](http://npmjs.org/), all npm interaction goes through here so it's safely abstracted away from the rest of the code.
 
 The important parts are the `setup()` and `packup()` methods which must wrap around any call to an npm command. If you don't do a `setup()` then you'll get an error, if you don't do a `packup()` then you'll likely have a hanging-process.
 
@@ -53,7 +53,7 @@ Contributions are more than welcome! Just fork and submit a GitHub pull request!
 
 ### Tests
 
-Ender Package Util uses [Buster](http://busterjs.org) for unit testing. You'll get it (and a bazillion unnecessary dependencies) when you `npm install` in your cloned local repository. Simply run `npm test` to run the test suite.
+Ender Repository uses [Buster](http://busterjs.org) for unit testing. You'll get it (and a bazillion unnecessary dependencies) when you `npm install` in your cloned local repository. Simply run `npm test` to run the test suite.
 
 ## Licence
 
