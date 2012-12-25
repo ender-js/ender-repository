@@ -1,49 +1,60 @@
-#Ender 1.0 - work in progress - developer notes
+# Ender Repository [![Build Status](https://secure.travis-ci.org/ender-js/ender-repository.png)](http://travis-ci.org/ender-js/ender-repository)
 
-Architecture notes can be found in *lib/README.md*.
+A component of the Ender CLI, providing an interface to [npm](http://npmjs.org/), all npm interaction goes through here so it's safely abstracted away from the rest of the code.
 
-This branch won't be deployed to npm until it's ready for a 1.0 release. Use `npm link` to install your local repo as the global *ender* package.
+The important parts are the `setup()` and `packup()` methods which must wrap around any call to an npm command. If you don't do a `setup()` then you'll get an error, if you don't do a `packup()` then you'll likely have a hanging-process.
 
-What does *ready* mean? We haven't quite pinned that down yet, but we'll get there!
+These two methods manage npm initialisation and also manage an npm logfile that goes into /tmp/ender_npm_... If `packup()` is called with a falsy first arg then the log file is deleted, otherwise it is left alone for debugging.
 
-Use `npm install` to install both the dependencies and the devDependencies, otherwise you won't be able to run the executable (in *bin/ender*) or run the tests (using the Makefile).
+Note that multiple npm commands can be run between `setup()` and `packup()`, they only need to be done once per app execute.
 
-Unit tests can be invoked by running a `make` or `make unittests`. Functional tests take longer to run as they check out packages from npm and can be invoked by running a `make functionaltests`. All types of tests can be run with `make alltests`--**this must be done before any pull-request and must all pass**.
+This repository may be used as a base for providing additional (non-npm) repositories for the Ender CLI.
 
-Tests use BusterJS, you can read more about it [here](http://busterjs.org/). Buster has integrated support for Sinon for mocking and stubbing, you can read more about it [here](http://sinonjs.org/). Note that Buster is still in Beta and may occasionally break. Bug @augustl or @cjno about that.
-
-Feel free to open an issue on GitHub if you would like to discuss something or want support of some kind. Alternatively you can bug [@rvagg](http://twitter.com/rvagg) on Twitter or via [email](mailto:rod@vagg.org).
-
-## Some behavioural differences from 0.8.x
-
-This branch should do everything that the current 0.8.x branch does, with some additions:
-
- * Some of the output to stdout will be different. Mostly minor wording changes but also the `ender info` output is included in each *build*, *add* and *remove*.
- * Packages are properly ordered (*!!*). Your *ender.js* will contain the packages you requested *in the order you requested them* on the commandline, with any dependencies placed *before* they are required.
- * *bin/ender* now gives proper exit-codes, if there is any kind of error you'll get a `1`, otherwise a `0`.
- * The `"ender"` key in *package.json* supports an array of files to concatenate to form the bridge.
- * A new `--client-lib` argument can be used to specify an alternative to the default *ender-js* package as a client lib. At the moment a client lib still needs to conform to the basics of the `$` + CommonJS pattern in order to support existing Ender packages.
-
-------------
-
-#ENDER [![Build Status](https://secure.travis-ci.org/ender-js/Ender.png)](http://travis-ci.org/ender-js/Ender)
-
-**Ender is a full featured package manager for your browser.**<br/>
-It allows you to search, install, manage, and compile front-end javascript packages and their dependencies for the web. We like to think of it as [NPM](https://github.com/isaacs/npm)'s little sister.
-
-**Ender is not a JavaScript library**.<br/>
-It's not a jQuery replacement. It's not even a static asset. It's a tool for making the consumption of front-end javascript packages dead simple and incredibly powerful.
-
-![Ender](http://f.cl.ly/items/1W0P3I3D3m3U0e1j2h1c/Screen%20shot%202011-05-09%20at%2011.31.42%20AM.png)
-
-## WHY?
-
-In the browser - **small, loosely coupled modules are the future and large, tightly-bound monolithic libraries are the past!**
-
-Ender capitalizes on this by offering a unique way to bring together the exciting work happening in javascript packages and allows you to mix, match, and customize your own build, suited to your individual needs, without all the extra cruft that comes with larger libraries.
-
-With Ender, if one library goes bad or unmaintained, it can be replaced with another. Need a specific package version? No problem! Does your package have dependencies? Let us handle that for you too!
-
-## MORE INFO
+## About Ender
 
 For more information checkout [http://ender.no.de](http://ender.no.de)
+
+## API
+
+### enderRepository.setup(callback)
+`setup()` must be called prior to performing any repository operations. If it has previously been called within the current executing process the callback will be executed immediately.
+
+-------------------------
+
+### enderRepository.packup(wasError, callback)
+`packup()` should be called when the repository is no longer required. The `wasError` boolean argument is used to dictate whether the log file collected from the underlying repository, npm, should be kept, otherwise it is automatically removed.
+
+-------------------------
+
+### enderRepository.search(keywords, callback)
+`search()` is a simple interface to the standard npm search command.
+
+Note that this is a generic npm search, not a specific Ender search, the filtering is done upstream (at the moment).
+
+-------------------------
+
+### enderRepository.install(packages, callback)
+`install()` will install the given packages from npm. The callback is given an object containing properties for the installed `tree`, a `pretty` version of the tree and a list of `installed` packages resulting from the command.
+
+-------------------------
+
+### enderRepository.uninstall(packages, callback)
+`uninstall()` uninstalls the given packages using npm.
+
+-------------------------
+
+## Executable
+
+If you install with `npm install ender-repository -g` (why would you?) then you'll get an `ender-repository` executable that will perform `install`, `uninstall` and `search` commands.
+
+## Contributing
+
+Contributions are more than welcome! Just fork and submit a GitHub pull request! If you have changes that need to be synchronized across the various Ender CLI repositories then please make that clear in your pull requests.
+
+### Tests
+
+Traversty uses [Buster](http://busterjs.org) for unit testing. You'll get it (and a bazillion unnecessary dependencies) when you `npm install` in your cloned local repository. Simply run `npm test` to run the test suite.
+
+## Licence
+
+*Ender Repository* is Copyright (c) 2012 [@rvagg](https://github.com/rvagg), [@ded](https://github.com/ded), [@fat](https://github.com/fat) and other contributors. It is licenced under the MIT licence. All rights not explicitly granted in the MIT license are reserved. See the included LICENSE file for more details.
