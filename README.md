@@ -12,7 +12,7 @@ This repository may be used as a base for providing additional (non-npm) reposit
 
 ## About Ender
 
-For more information checkout [http://ender.no.de](http://ender.no.de)
+For more information checkout [http://ender.jit.su](http://ender.jit.su)
 
 ## API
 
@@ -53,7 +53,7 @@ Contributions are more than welcome! Just fork and submit a GitHub pull request!
 
 ### Tests
 
-Traversty uses [Buster](http://busterjs.org) for unit testing. You'll get it (and a bazillion unnecessary dependencies) when you `npm install` in your cloned local repository. Simply run `npm test` to run the test suite.
+Ender Package Util uses [Buster](http://busterjs.org) for unit testing. You'll get it (and a bazillion unnecessary dependencies) when you `npm install` in your cloned local repository. Simply run `npm test` to run the test suite.
 
 ## Licence
 

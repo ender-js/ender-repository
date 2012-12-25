@@ -1,22 +1,23 @@
 {
     "name": "ender-repository"
   , "description": "Repository (npm) manager for the Ender CLI"
-  , "version": "0.0.0"
+  , "version": "0.0.1"
   , "authors": [
         "Rod Vagg @rvagg <rod@vagg.org> (https://github.com/rvagg)"
       , "Dustin Diaz @ded <dustin@obvious.com> (https://github.com/ded)"
       , "Jacob Thornton @fat <jacob@twitter.com> (https://github.com/fat)"
     ]
-  , "keywords": [ "npm", "repository", "ender" ]
+  , "keywords": []
   , "main": "./lib/index.js"
-  , "homepage": "https://ender.no.de"
+  , "homepage": "https://ender.jit.su"
   , "dependencies": {
         "npm"          : "~1.1.70"
       , "async"        : "~0.1.22"
       , "errno"        : "~0.0.3"
     }
   , "devDependencies": {
-        "buster"      : ">= 0.5.4"
+        "buster"       : "~0.6.12"
+      , "xregexp"      : "~2.0.0"
     }
   , "scripts": {
         "test"        : "./node_modules/.bin/buster-test"
