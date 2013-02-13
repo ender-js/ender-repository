@@ -12,7 +12,7 @@ This repository may be used as a base for providing additional (non-npm) reposit
 
 ## About Ender
 
-For more information checkout [http://ender.jit.su](http://ender.jit.su)
+For more information check out [http://ender.jit.su](http://ender.jit.su)
 
 ## API
 
