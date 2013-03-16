@@ -17,11 +17,13 @@
       , "errno"             : "~0.0.3"
     }
   , "devDependencies": {
-        "buster"       : "~0.6.12"
-      , "xregexp"      : "~2.0.0"
+        "bustermove"  : "*"
+      , "tap"         : "*"
+      , "referee"     : "*"
+      , "xregexp"     : "~2.0.0"
     }
   , "scripts": {
-        "test"        : "./node_modules/.bin/buster-test"
+        "test"        : "tap test/*-test.js"
     }
   , "bin": {
         "ender-repository" : "./bin/ender-repository.js"

@@ -22,27 +22,27 @@
  * SOFTWARE.
  */
 
-var buster = require('buster')
+var referee = require('referee')
 
-buster.assertions.add('isString', {
+referee.add('isString', {
     assert: function (actual) {
       return typeof actual == 'string'
     }
   , assertMessage: 'expected ${0} to be a string'
 })
-buster.assertions.add('isArray', {
+referee.add('isArray', {
     assert: function (actual) {
       return Array.isArray(actual)
     }
   , assertMessage: 'expected ${0} to be an Array'
 })
-buster.assertions.add('fail', {
+referee.add('fail', {
     assert: function () {
       return false
     }
   , assertMessage: '${0}'
 })
-buster.assertions.add('contains', {
+referee.add('contains', {
     assert: function (actual, expected) {
       return Array.prototype.indexOf.call(actual, expected) != -1
     }

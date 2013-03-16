@@ -23,13 +23,14 @@
  */
 
 
-var buster                 = require('buster')
-  , assert                 = buster.assert
-  , fs                     = require('fs')
-  , repository             = require('../')
-  , tmpDir                 = require('os').tmpDir()
-  , FilesystemError        = require('errno').custom.FilesystemError
- 
+var buster          = require('bustermove')
+  , assert          = require('referee').assert
+  , refute          = require('referee').refute
+  , fs              = require('fs')
+  , repository      = require('../')
+  , tmpDir          = require('os').tmpDir()
+  , FilesystemError = require('errno').custom.FilesystemError
+
   , executeSetupPackupTempDirTest = function (execute, verify, done) {
       fs.readdir(tmpDir, function (err, files) {
         if (err) {
