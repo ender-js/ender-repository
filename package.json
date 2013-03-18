@@ -1,7 +1,7 @@
 {
     "name": "ender-repository"
   , "description": "Repository (npm) manager for the Ender CLI"
-  , "version": "0.0.3"
+  , "version": "0.0.4"
   , "authors": [
         "Rod Vagg @rvagg <rod@vagg.org> (https://github.com/rvagg)"
       , "Dustin Diaz @ded <dustin@obvious.com> (https://github.com/ded)"
@@ -11,7 +11,7 @@
   , "main": "./lib/index.js"
   , "homepage": "https://ender.jit.su"
   , "dependencies": {
-        "ender-package-util": "~0.0.0"
+        "ender-package-util": "~0.0.1"
       , "npm"               : "~1.2.10"
       , "async"             : "~0.1.22"
       , "errno"             : "~0.0.3"
