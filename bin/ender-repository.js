@@ -1,15 +1,15 @@
 #!/usr/bin/env node
 
-const enderRepository = require('../')
+const repository = require('../')
 
 var args = process.argv.slice(2)
   , cmd = args.shift()
 
   , exec = {
-        install   : enderRepository.install.bind(enderRepository)
-      , uninstall : enderRepository.uninstall.bind(enderRepository)
+        install   : repository.install.bind(repository)
+      , uninstall : repository.uninstall.bind(repository)
       , search    : function (args, callback) {
-          enderRepository.search(args, function (err, data) {
+          repository.search(args, function (err, data) {
             if (err) return callback(err)
             console.log(Object.keys(data).map(function (key) {
               return data[key].name + '\t' + data[key].description
@@ -20,11 +20,11 @@ var args = process.argv.slice(2)
     }
 
 if (exec[cmd] && args.length) {
-  return enderRepository.setup(function (err) {
+  return repository.setup(function (err) {
     if (err) throw err
     exec[cmd](args, function (err) {
       if (err) throw err
-      enderRepository.packup()
+      repository.packup()
     })
   })
 }

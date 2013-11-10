@@ -64,28 +64,6 @@ buster.testCase('install()', {
       assert(true) // required, buster issue #62
     }
 
-    // disabled as the '.' special case has been moved into the main-build logic instead
-    /*
-  , 'test install() calls npm.commands.install() twice if "." package is specified': function (done) {
-      var npmMock = this.mock(this.npm)
-        , npmCommandsMock = this.mock(this.npmCommands)
-        , packages = [ 'packages', 'argument', 'foo/..' ]
-        , finish = function () {
-            repository.packup(false, done)
-          }
-
-      npmMock.expects('load').once().callsArg(1)
-      npmCommandsMock.expects('install').once().withArgs(packages.slice(0, 2)).callsArg(1)
-      npmCommandsMock.expects('install').once().withArgs([ '.' ]).callsArg(1)
-
-      repository.setup(function () {
-        repository.install(packages, finish)
-      })
-
-      assert(true) // required, buster issue #62
-    }
-    */
-
   , 'test npm.commands.install error': function (done) {
       var npmMock = this.mock(this.npm)
         , npmCommandsMock = this.mock(this.npmCommands)

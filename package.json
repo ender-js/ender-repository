@@ -11,8 +11,7 @@
   , "main": "./lib/index.js"
   , "homepage": "https://ender.jit.su"
   , "dependencies": {
-        "ender-package-util": "~0.0.1"
-      , "npm"               : "~1.2.10"
+        "npm"               : "~1.2.10"
       , "async"             : "~0.1.22"
       , "errno"             : "~0.0.3"
     }
