@@ -17,7 +17,7 @@ For more information check out [http://ender.jit.su](http://ender.jit.su)
 ## API
 
 ### enderRepository.setup(callback)
-`setup()` must be called prior to performing any repository operations. If it has previously been called within the current executing process the callback will be executed immediately.
+`setup()` must be called prior to performing any repository operations. It will also create a 'node_modules' directory in the current working directory if one doesn't already exist. If it has previously been called within the current executing process the callback will be executed immediately.
 
 -------------------------
 
