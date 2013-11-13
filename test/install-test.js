@@ -55,7 +55,10 @@ buster.testCase('install()', {
           }
 
       npmMock.expects('load').once().callsArg(1)
-      npmCommandsMock.expects('install').once().withArgs(packages).callsArg(1)
+      npmCommandsMock.expects('install')
+        .once()
+        .withArgs(packages)
+        .callsArgWith(1, null, [])
 
       repository.setup(function () {
         repository.install(packages, finish)
