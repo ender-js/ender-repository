@@ -13,7 +13,6 @@
   , "homepage": "https://ender.jit.su"
   , "dependencies": {
         "npm"               : "~1.2.10"
-      , "async"             : "~0.1.22"
       , "errno"             : "~0.0.3"
     }
   , "devDependencies": {
