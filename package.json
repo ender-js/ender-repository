@@ -1,34 +1,34 @@
 {
-    "name": "ender-repository"
-  , "description": "Repository (npm) manager for the Ender CLI"
-  , "version": "1.0.1"
-  , "authors": [
-        "Rod Vagg @rvagg <rod@vagg.org> (https://github.com/rvagg)"
-      , "Dustin Diaz @ded <dustin@dustindiaz.com.com> (https://github.com/ded)"
-      , "Jacob Thornton @fat <jacob@obvious.com> (https://github.com/fat)"
-      , "Andrew McCollum (https://github.com/amccollum)"
-    ]
-  , "keywords": []
-  , "main": "./lib/index.js"
-  , "homepage": "https://ender.jit.su"
-  , "dependencies": {
-        "npm"               : "~1.4.4"
-      , "errno"             : "~0.0.3"
-    }
-  , "devDependencies": {
-        "bustermove"  : "*"
-      , "tap"         : "*"
-      , "referee"     : "*"
-      , "xregexp"     : "~2.0.0"
-    }
-  , "scripts": {
-        "test"        : "tap test/*-test.js"
-    }
-  , "bin": {
-        "ender-repository" : "./bin/ender-repository.js"
-    }
-  , "repository": {
-        "type"        : "git"
-      , "url"         : "https://github.com/ender-js/ender-repository.git"
-    }
+  "name": "ender-repository",
+  "description": "Repository (npm) manager for the Ender CLI",
+  "version": "1.0.2",
+  "authors": [
+    "Rod Vagg @rvagg <rod@vagg.org> (https://github.com/rvagg)",
+    "Dustin Diaz @ded <dustin@dustindiaz.com.com> (https://github.com/ded)",
+    "Jacob Thornton @fat <jacob@obvious.com> (https://github.com/fat)",
+    "Andrew McCollum (https://github.com/amccollum)"
+  ],
+  "keywords": [],
+  "main": "./lib/index.js",
+  "homepage": "https://ender.jit.su",
+  "dependencies": {
+    "npm": "~1.4.4",
+    "errno": "~0.0.3"
+  },
+  "devDependencies": {
+    "bustermove": "*",
+    "tap": "*",
+    "referee": "*",
+    "xregexp": "~2.0.0"
+  },
+  "scripts": {
+    "test": "tap test/*-test.js"
+  },
+  "bin": {
+    "ender-repository": "./bin/ender-repository.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ender-js/ender-repository.git"
+  }
 }
