@@ -12,7 +12,7 @@
   , "main": "./lib/index.js"
   , "homepage": "https://ender.jit.su"
   , "dependencies": {
-        "npm"               : "~1.2.10"
+        "npm"               : "~1.4.4"
       , "errno"             : "~0.0.3"
     }
   , "devDependencies": {
